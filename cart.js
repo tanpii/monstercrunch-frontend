@@ -178,13 +178,13 @@ function makeOrder() {
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
+  const orderButton = document.getElementById("button-order");
+  orderButton.addEventListener("click", makeOrder)
+  await parseJson();
   if (cartProducts.length === 0) {
     loadEmptyCartScreen();
     return;
   }
-  const orderButton = document.getElementById("button-order");
-  orderButton.addEventListener("click", makeOrder)
-  await parseJson();
   loadProducts();
   loadInfoAboutOrder();
 
