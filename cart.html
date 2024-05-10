@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MonsterCrunch</title>
+        <link rel="icon" type="image/png" href="images/cookie_monster.png">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script type="module" src="/cart.js" defer></script>
+        <script src="burger.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <span class="error" id="login_error">
+            Неверный логин или пароль... Попробуйте еще раз🤫
+        </span>
+        <div id="loginForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="login-form">
+                <h1>ВХОД</h1>
+                <input type="email" placeholder="Почта💌" id="email" name="email" required autocomplete="email">
+                <input type="password" placeholder="Пароль🤫" id="password" name="password" required autocomplete="current-password">
+                <button type="submit" id="login-button">ВОЙТИ</button>
+                <button type="button" id="to-registration-button">Ещё нет аккаунта</a>
+            </form>
+            <button id="closeLoginFormButton">Закрыть</button>
+        </div>
+        <div id="registrationForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="registration-form">
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <input type="text" placeholder="Имя🧸" id="name" name="name" required autocomplete="given-name">
+                <input type="text" placeholder="Фамилия🍪" id="surname" name="surname" required autocomplete="family-name">
+                <input type="email" placeholder="Почта💌" id="new-email" name="email" required autocomplete="email">
+                <input type="password" placeholder="Пароль🤫" id="new-password" name="password" required autocomplete="new-password">
+                <button type="submit" id="registration-button">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                <button type="button" id="to-login-button">Уже есть аккаунт</a>
+            </form>
+            <button id="closeRegistrationFormButton">Закрыть</button>
+        </div>
+        <header>
+            <div class="center-menu">
+                <h1 id="title">MONSTER<br> CRUNCH</h1>
+                <div class="logo">
+                    <img src="images/cookie_monster.png"/>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Наше печенье</a></li>
+                        <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                        <li><a class="cart" href="cart.html">
+                            <span class="cart-count"></span>
+                            <img src="images/icons/basket.png" >
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile">
+                <div class="header-burger"><span></span></div>
+                <a class="mobile-cart" href="cart.html">
+                    <span class="cart-count"></span>
+                    <img src="images/icons/basket.png">
+                </a>
+            </div>
+        </header>
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Наше печенье</a></li>
+                <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="cart-container">
+                <div class="products-container">
+                </div>
+                <div class="cart-result">
+                    <span class="cart-head">ВАША КОРЗИНА</span>
+                    <div class="cost-line">СУММА: <span class="result-cost"></span></div>
+                    <div class="delivery-line">ДОСТАВКА: <span class="result-delivery"></span></div>
+                    <div class="result-line">ИТОГО: <span class="result"></span></div>
+                    <label>Заберу сам
+                        <input type="checkbox" id="pickup-checkbox" name="pickup-checkbox">
+                    </label>
+                    <button class="button-order" id="button-order">К ОФОРМЛЕНИЮ</button>
+                    <img src="images/cookie_monster_add.png" alt="cookie_monster" width="200">
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

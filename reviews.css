@@ -1,0 +1,236 @@
+.reviews-title {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: calc(16px + 2vw);
+}
+
+.reviews-container {
+  margin: 2vw;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+}
+
+.review {
+  margin-bottom: 2vw;
+  width: 28vw;
+  display: flex;
+  flex-flow: column;
+  transition: transform 0.3s ease-in;
+  filter: drop-shadow(0 0 7px rgb(0, 0, 0, 0.2));
+}
+
+.review:hover {
+  transform: scale(1.02);
+  transition: transform 0.5s ease-in;
+}
+
+.review-photo {
+  position: relative;
+  width: 28vw;
+  height: 28vw;
+  overflow: hidden;
+  border-top-right-radius: 10px;
+}
+
+.review-photo img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.review-stars {
+  z-index: 1;
+  position: absolute;
+  background: white;
+  color: rgb(236, 197, 0);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: calc(12px + 0.5vw);
+  top: 2%;
+  right: 2%;
+}
+
+.review-name {
+  width: fit-content;
+  padding: 0.3vw 2vw;
+  border-radius: 10px 10px 0 0;
+  background: var(--main-color);
+  font-size: calc(12px + 0.5vw);
+  font-weight: 600;
+  color: white;
+}
+
+.review-text {
+  background: white;
+  padding: 2vw;
+  width: 28vw;
+  border-radius: 0 0 10px 10px;
+  font-size: calc(12px + 0.5vw);
+  text-align: justify;
+}
+
+@media (max-width: 769px) {
+  .review {
+    width: 45vw;
+  }
+  
+  .review-photo {
+    width: 45vw;
+    height: 45vw;
+  }
+
+  .review-text {
+    width: 45vw;
+    padding: 5vw;
+  }
+}
+
+@media (max-width: 426px) {
+  .reviews-container {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .review {
+    width: 90vw;
+  }
+  
+  .review-photo {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .review-text {
+    width: 90vw;
+    padding: 7vw;
+  }
+}
+
+.form-container {
+  width: 100%;
+  padding: 50px;
+}
+
+.form-title {
+  position: relative;
+  text-align: center;
+  font-size: calc(16px + 0.5vw);
+  margin-bottom: 2vw;
+}
+
+#review-form {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "name tel review"
+    "number photo review"
+    ". . button";
+  grid-template-columns: 1fr 1fr 2fr; /* Задаем размеры столбцов */
+  grid-template-rows: 1fr 1fr; /* Задаем размеры строк */
+  gap: 20px;
+}
+
+#review-name {
+  grid-area: name;
+}
+
+#review-tel {
+  grid-area: tel;
+}
+
+#review-number {
+  grid-area: number;
+}
+
+#review-photo {
+  grid-area: photo;
+  position: relative;
+  display: inline-block;
+}
+
+input[type="file"] {
+  margin-top: 5px;
+  font-size: calc(12px + 0.2vw);
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background: white;
+  color: black;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: calc(12px + 0.2vw);
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type="file"]::-moz-file-upload-button {
+  background: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: calc(12px + 0.2vw);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#review-text {
+  grid-area: review;
+  height: auto;
+}
+
+#review-button {
+  grid-area: button;
+  width: fit-content;
+  place-self: end;
+  box-shadow: 0 0 5px var(--main-color);
+  transition: transform 0.2s ease-in;
+}
+
+#review-button:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in;
+}
+
+#review-name, #review-number, #review-tel, #review-text {
+  padding: 10px 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  outline: none;
+  font-size: calc(12px + 0.2vw);
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+
+#review-name::placeholder, #review-number::placeholder, #review-tel::placeholder, #review-text::placeholder {
+  font-size: calc(12px + 0.2vw);
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+}
+
+@media (max-width: 930px) {
+  #review-form {
+    grid-template-areas:
+      "name tel"
+      "number photo"
+      "review review"
+      ". button";
+    grid-template-columns: 1fr 1fr; /* Задаем размеры столбцов */
+    grid-template-rows: 1fr 1fr 2fr 1fr; /* Задаем размеры строк */
+  }
+}
+
+@media (max-width: 640px) {
+  #review-form {
+    grid-template-areas:
+      "name"
+      "tel"
+      "number"
+      "photo"
+      "review"
+      "button";
+    grid-template-columns: 1fr; /* Задаем размеры столбцов */
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr 1fr; /* Задаем размеры строк */
+  }
+}

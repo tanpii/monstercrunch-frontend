@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>MonsterCrunch</title>
+      <link rel="icon" type="image/png" href="images/cookie_monster.png">
+      <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+      <script src="burger.js" defer></script>
+      <script src="login_registration.js" defer></script>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <span class="error" id="login_error">
+        Неверный логин или пароль... Попробуйте еще раз🤫
+      </span>
+      <span class="error" id="unauthorized_error">
+          Сначала авторизуйтесь! 💌
+      </span>
+      <div id="loginForm" class="popup">
+          <div class="floating-cookies">
+              <div class="floating-cookie"><img src="images/cookie1.png"></div>
+              <div class="floating-cookie"><img src="images/cookie2.png"></div>
+              <div class="floating-cookie"><img src="images/cookie3.png"></div>
+              <div class="floating-cookie"><img src="images/cookie1.png"></div>
+              <div class="floating-cookie"><img src="images/cookie3.png"></div>
+          </div>
+          <form class="login-form">
+              <h1>ВХОД</h1>
+              <input type="email" placeholder="Почта💌" id="email" name="email" required autocomplete="email">
+              <input type="password" placeholder="Пароль🤫" id="password" name="password" required autocomplete="current-password">
+              <button type="submit" id="login-button">ВОЙТИ</button>
+              <button type="button" id="to-registration-button">Ещё нет аккаунта</a>
+          </form>
+          <button id="closeLoginFormButton">Закрыть</button>
+      </div>
+      <div id="registrationForm" class="popup">
+          <div class="floating-cookies">
+              <div class="floating-cookie"><img src="images/cookie1.png"></div>
+              <div class="floating-cookie"><img src="images/cookie2.png"></div>
+              <div class="floating-cookie"><img src="images/cookie3.png"></div>
+              <div class="floating-cookie"><img src="images/cookie1.png"></div>
+              <div class="floating-cookie"><img src="images/cookie3.png"></div>
+          </div>
+          <form class="registration-form">
+              <h1>РЕГИСТРАЦИЯ</h1>
+              <input type="text" placeholder="Имя🧸" id="name" name="name" required autocomplete="given-name">
+              <input type="text" placeholder="Фамилия🍪" id="surname" name="surname" required autocomplete="family-name">
+              <input type="email" placeholder="Почта💌" id="new-email" name="email" required autocomplete="email">
+              <input type="password" placeholder="Пароль🤫" id="new-password" name="password" required autocomplete="new-password">
+              <button type="submit" id="registration-button">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+              <button type="button" id="to-login-button">Уже есть аккаунт</a>
+          </form>
+          <button id="closeRegistrationFormButton">Закрыть</button>
+        </div>
+        <header>
+          <div class="center-menu">
+              <h1 id="title">MONSTER<br> CRUNCH</h1>
+              <div class="logo">
+                  <img src="images/cookie_monster.png"/>
+              </div>
+              <nav class="menu">
+                  <ul>
+                      <li><a href="index.html">Главная</a></li>
+                      <li><a href="catalog.html">Наше печенье</a></li>
+                      <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                      <li><a class="cart" href="cart.html">
+                          <span class="cart-count"></span>
+                          <img src="images/icons/basket.png" >
+                      </a></li>
+                  </ul>
+              </nav>
+          </div>
+          <div class="mobile">
+              <div class="header-burger"><span></span></div>
+              <a class="mobile-cart" href="cart.html">
+                  <span class="cart-count"></span>
+                  <img src="images/icons/basket.png">
+              </a>
+          </div>
+        </header>
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Наше печенье</a></li>
+                <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="admin_panel">
+                <h1>Добавление продукта</h1>
+                <form id="productForm" action="http://158.160.154.243:8080/api/admin" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="jwtToken" name="jwtToken">
+                    
+
+                        <label for="productName">Имя продукта:</label>
+                        <input type="text" id="productName" name="productName" required>
+
+
+                        <label for="description">Описание:</label>
+                        <textarea id="description" name="description" required></textarea>
+
+                        <label for="price">Цена:</label>
+                        <input type="number" id="price" name="price" min="0" required>
+
+                        <label for="amount">Количество:</label>
+                        <input type="number" id="amount" name="amount" min="0" required>
+
+                        <label for="image">Картинка:</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+
+                    <button type="submit">Добавить</button>
+                    <button type="button" id="exit-button">Выйти из аккаунта</button>
+                </form>
+            </div>
+            
+            <script>
+              let exitButton = document.getElementById('exit-button');
+                exitButton.addEventListener('click', function() {
+                  localStorage.removeItem('token');
+                  window.location.href = 'index.html';
+                })
+
+              var jwtToken = localStorage.getItem('token');
+          
+              document.getElementById('productForm').addEventListener('submit', function(event) {
+                  event.preventDefault();
+
+                  var formData = new FormData(this);
+                  
+                  var headers = new Headers();
+                  headers.append('Authorization', 'Bearer ' + jwtToken);
+                  headers.append('Access-Control-Allow-Origin', '*');
+                  
+                  fetch(this.action, {
+                      method: this.method,
+                      body: formData,
+                      headers: headers
+                  })
+                  .then(data => {
+                      console.log('Успешно отправлено:', data);
+                  })
+                  .catch(error => {
+                      console.error('Ошибка:', error);
+                  });
+              });
+            </script>
+        </main>
+    </body>
+</html>

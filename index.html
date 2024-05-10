@@ -1,0 +1,393 @@
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MonsterCrunch</title>
+        <link rel="icon" type="image/png" href="images/cookie_monster.png">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <script src="libs/gsap/gsap.min.js" defer></script>
+        <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+        <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+        <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script src="/smotherscroll.js" type="text/javascript" defer></script>
+        <script src="/animation.js" type="text/javascript" defer></script>
+        <script src="burger.js" type="text/javascript" defer></script>
+        <script src="login_registration.js" type="text/javascript" defer></script>
+        <script type="module" src="cart_count.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <span class="error" id="login_error">
+            Неверный логин или пароль... Попробуйте еще раз🤫
+        </span>
+        <div id="loginForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="login-form">
+                <h1>ВХОД</h1>
+                <input type="email" placeholder="Почта💌" id="email" name="email" required autocomplete="email">
+                <input type="password" placeholder="Пароль🤫" id="password" name="password" required autocomplete="current-password">
+                <button type="submit" id="login-button">ВОЙТИ</button>
+                <button type="button" id="to-registration-button">Ещё нет аккаунта</a>
+            </form>
+            <button id="closeLoginFormButton">Закрыть</button>
+        </div>
+        <div id="registrationForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="registration-form">
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <input type="text" placeholder="Имя🧸" id="name" name="name" required autocomplete="given-name">
+                <input type="text" placeholder="Фамилия🍪" id="surname" name="surname" required autocomplete="family-name">
+                <input type="email" placeholder="Почта💌" id="new-email" name="email" required autocomplete="email">
+                <input type="password" placeholder="Пароль🤫" id="new-password" name="password" required autocomplete="new-password">
+                <button type="submit" id="registration-button">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                <button type="button" id="to-login-button">Уже есть аккаунт</a>
+            </form>
+            <button id="closeRegistrationFormButton">Закрыть</button>
+        </div>
+        <div class="wrapper">
+            <div class="content">
+                <div class="interactive-header">
+                    <div class="word">
+                        <div class="letter">M</div>
+                        <div class="letter">O</div>
+                        <div class="letter">N</div>
+                        <div class="letter">S</div>
+                        <div class="letter">T</div>
+                        <div class="letter">E</div>
+                        <div class="letter">R</div>
+                    </div>
+                    <div class="word">
+                        <div class="letter">C</div>
+                        <div class="letter">R</div>
+                        <div class="letter">U</div>
+                        <div class="letter">N</div>
+                        <div class="letter">C</div>
+                        <div class="letter">H</div>
+                    </div>
+                </div>
+                <header>
+                    <div class="center-menu">
+                        <h1 id="title">MONSTER<br> CRUNCH</h1>
+                        <div class="logo">
+                            <img src="images/cookie_monster.png"/>
+                        </div>
+                        <nav class="menu">
+                            <ul>
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="catalog.html">Наше печенье</a></li>
+                                <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                                <li><a class="cart" href="cart.html">
+                                    <span class="cart-count"></span>
+                                    <img src="images/icons/basket.png" >
+                                </a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="mobile">
+                        <div class="header-burger"><span></span></div>
+                        <a class="mobile-cart" href="cart.html">
+                            <span class="cart-count"></span>
+                            <img src="images/icons/basket.png">
+                        </a>
+                    </div>
+                </header>
+                <nav class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Наше печенье</a></li>
+                        <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
+                    </ul>
+                </nav>
+                <main>
+                    <div class="little-description">
+                        <div class="text">
+                            <h1 id="up">Если ты любишь cookies так же, как и cookie monster...</h1>
+                            <p>...то купить идеальное печенье по секретному рецепту ты можешь в MonsterCrunch! Хотите испытать настоящий взрыв вкусов в каждом укусе? Тогда добро пожаловать в наш магазин печенья, где хрустящее печенье становится настоящим искусством!</p>
+                        </div>
+                        <div class="image">
+                            <img src="images/cookie_monster_eat.png"/>
+                        </div>
+                    </div>
+                    <div class="buyline"></div>
+                    <div class="new-products">
+                        <div class="description">
+                            <h2>СЕЗОННОЕ ПРЕДЛОЖЕНИЕ</h2>
+                            <p>В этот раз наши пекари постарались и придумали рецепт по-особому хрустящего печенья. Эти печеньки в виде милых кошечек и собачек точно поднимут вам настроение! Они станут прекрасным компаньоном к вашему стакану теплого молока. Разделите их с близкими.</p>
+                            <button href="catalog.html" class="horror-button">К КАТАЛОГУ</button>
+                        </div>
+                        <div class="products">
+                            <img id="ginger-cat" class="product product__1" src="/images/cat_cookie.png">
+                            <img id="lovely-puppy" class="product product__2" src="/images/dog_cookie.png">
+                            <img id="lazy-kitten" class="product product__3" src="/images/cat_cookie_2.png">
+                            <img id="choco-dog" class="product product__4" src="/images/dog_cookie1.png">
+                        </div>
+                        <div id="name__ginger-cat" class="product-name product-name__1">GINGER CAT</div>
+                        <div id="name__lovely-puppy" class="product-name product-name__2">LOVELY PUPPY</div>
+                        <div id="name__lazy-kitten" class="product-name product-name__3">LAZY KITTEN</div>
+                        <div id="name__choco-dog" class="product-name product-name__4">CHOCO DOG</div>
+                        <i class="rotate-button fa-solid fa-arrow-right"></i>
+                        <div class="emojis">
+                            <div class="emoji-line emoji-line__1">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__2">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__3">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__4">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__5">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__6">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__7">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                            <div class="emoji-line emoji-line__8">
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                                <div class="emoji">☕</div>
+                                <div class="emoji">🥛</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cookie-line">
+                        <span>C</span>
+                        <img class="cookie cookie__1" src="images/cookie1.png">
+                        <img class="cookie cookie__2" src="images/cookie1.png">
+                        <img class="cookie cookie__3" src="images/cookie1.png">
+                        <img class="cookie cookie__4" src="images/cookie1.png">
+                        <span>KIES</span>
+                    </div>
+                    <div class="why-we">
+                        <div id="why-we-carousel" class="owl-carousel">
+                            <div class="item why-we-card why-we-card__friends">
+                                <div class="why-we-card__img"><img src="images/cookie_monster_friends.png"></div>
+                                <div class="why-we-card__text">
+                                    <div class="why-we-card__title">ДЕЛИСЬ С ДРУЗЬЯМИ</div>
+                                    <div class="why-we-card__desc">Печенье от Monster Crunch - отличный повод провести чаепитие с друзьями.</div>
+                                </div>
+                            </div>
+                            <div class="item why-we-card why-we-card__gift">
+                                <div class="why-we-card__img"><img src="images/cookie_monster_gift.png"></div>
+                                <div class="why-we-card__text">
+                                    <div class="why-we-card__title">ОТЛИЧНЫЙ ПОДАРОК</div>
+                                    <div class="why-we-card__desc">Каждый будет рад получить в качестве подарка коробочку вкусного печенья.</div>
+                                </div>
+                            </div>
+                            <div class="item why-we-card why-we-card__love">
+                                <div class="why-we-card__img"><img src="images/cookie_monster_love.png"></div>
+                                <div class="why-we-card__text">
+                                    <div class="why-we-card__title">ИСТИННЫЙ ЦЕНИТЕЛЬ</div>
+                                    <div class="why-we-card__desc">Стань истинным ценителем сладкого с качественным печеньем от Monster Crunch.</div>
+                                </div>
+                            </div>
+                            <div class="item why-we-card why-we-card__bakers">
+                                <div class="why-we-card__img"><img src="images/cookie_monster_bakers.png"></div>
+                                <div class="why-we-card__text">
+                                    <div class="why-we-card__title">ПРОБУЙ НОВОЕ</div>
+                                    <div class="why-we-card__desc">Наши пекари всегда стараются придумать необычные сочетания и рецепты.</div>
+                                </div>
+                            </div>
+                            <div class="item why-we-card why-we-card__birthday">
+                                <div class="why-we-card__img"><img src="images/cookie_monster_birthday.png"></div>
+                                <div class="why-we-card__text">
+                                    <div class="why-we-card__title">ПОРАДУЙ СЕБЯ</div>
+                                    <div class="why-we-card__desc">Ты точно заслуживаешь чашечку кофе и нашего хрустящего печенья.</div>
+                                </div>
+                            </div>
+                            <div class="item why-we-card why-we-card__bath">
+                                <div class="why-we-card__img"><img src="images/cookie_monster_bath.png"></div>
+                                <div class="why-we-card__text">
+                                    <div class="why-we-card__title">НАСЛАЖДАЙСЯ ВКУСОМ</div>
+                                    <div class="why-we-card__desc">Наслаждайся ярким вкусом нашего печенья всегда и везде.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-us">
+                        <div class="head">
+                            <h2 class="head-title head-title__1">Кто</h2>
+                            <h2 class="head-title head-title__2">такие</h2>
+                            <h2 class="head-title head-title__3">Monster</h2>
+                            <h2 class="head-title head-title__4">Crunch?</h2>
+                            <img class="cookie-monster" src="/images/cookie_monster_cook.png">
+                        </div>
+                        <div class="gallery">
+                            <div data-speed="1.1" class="left-column">
+                                <img class="gallery-item" src="/images/baker.JPG" alt="baker">
+                                <div class="text-block gallery-item">
+                                    <h2 class="text-block__title">
+                                        В чём наша особенность?
+                                    </h2>
+                                    <p class="text-block__p">                       
+                                        Важным принципом Monster Crunch является внимание к деталям и любовь к каждой печеньке. У нас нет конвейеров и массового производства. Каждая печенька создается вручную, с тщательным вниманием к каждому этапу процесса.
+                                        <br>Мы используем лучшую технику для приготовления наших угощений, чтобы каждая печенька была идеальной по вкусу и текстуре. Качественные ингредиенты и вдумчивый подход к производству делают Monster Crunch не просто производителем печенья, а создателем неповторимых вкусовых впечатлений. Приготовьтесь погрузиться в мир волшебства и аромата, который мы создаем для вас с любовью и теплом каждый день.
+                                    </p>
+                                </div>
+                                <img class="gallery-item" src="/images/baker3.JPG" alt="baker">
+                                <img class="gallery-item" src="/images/cookies1.JPG" alt="baker">
+                            </div>
+                            <div data-speed="0.9"  class="right-column">
+                                <div class="text-block gallery-item">
+                                    <h2 class="text-block__title">
+                                        Кто такие Monster Crunch?
+                                    </h2>
+                                    <p class="text-block__p">                             
+                                        Monster Crunch - это компания, зародившаяся из страсти и вдохновения создателя Александра Куликова. Погруженный в атмосферу детства, он вдохновился персонажем Cookie Monster из мультика "Улица Сезам" и решил превратить свою любовь к печенью в настоящее искусство.
+                                        <br>Monster Crunch начала свой путь как маленькая пекарня, основанная Александром в сердце Москвы. Его страсть к созданию вкусных и милых угощений быстро нашла отклик в сердцах людей, и пекарня постепенно превратилась в большую, но сохраняющую свое уютное очарование фабрику по производству печенья.
+                                    </p>
+                                </div>
+                                <img class="gallery-item" src="/images/team1.png" alt="baker">
+                                <img class="gallery-item" src="/images/kitchen.JPG" alt="baker">
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <div class="for_footer">
+                    <footer>
+                        <div class="footer_container">
+                            <div class="sec aboutus">
+                                <h2>О нас</h2>
+                                <p>Monster Crunch - это фабрика по производству печенья под руководством Александра Куликова. Важным принципом Monster Crunch является внимание к деталям и любовь к каждой печеньке.
+                                </p>
+                                <ul class="sci">
+                                    <li><a id="yt" href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                    <li><a id="tg" href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                                    <li><a id="tel" href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="sec quicklinks">
+                                <h2>Быстрая навигация</h2>
+                                <ul>
+                                    <li><a href="index.html">Главная</a></li>
+                                    <li><a href="catalog.html">Наше печенье</a></li>
+                                    <li><a href="reviews.html">Отзывы</a></li>
+                                    <li><a href="cart.html">Корзина</a></li>
+                                </ul>
+                            </div>
+                            <div class="sec contact">
+                                <h2>Свяжитесь с нами</h2>
+                                <ul class="info">
+                                    <li>
+                                        <span><i class="fa-solid fa-map"></i></i></i></span>
+                                        <span>
+                                            Мичуринский пр-т 12, к2<br>
+                                            Москва,<br>
+                                            Россия
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-phone"></i></i></i></span>
+                                        <p><a href="tel:+79624217078">+7(951)194-01-52</a></p>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-envelope"></i></i></i></span>
+                                        <p><a href="mailto:monstercrunch@mail.ru">monstercrunch@mail.ru</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

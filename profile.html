@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Профиль</title>
+        <link rel="icon" type="image/png" href="images/cookie_monster.png">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script src="profile.js" type="text/javascript" defer></script>
+        <script src="burger.js" type="text/javascript" defer></script>
+        <script type="module" src="cart_count.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <span class="error" id="login_error">
+            Неверный логин или пароль... Попробуйте еще раз🤫
+        </span>
+        <div id="loginForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="login-form">
+                <h1>ВХОД</h1>
+                <input type="email" placeholder="Почта💌" id="email" name="email" required autocomplete="email">
+                <input type="password" placeholder="Пароль🤫" id="password" name="password" required autocomplete="current-password">
+                <button type="submit" id="login-button">ВОЙТИ</button>
+                <button type="button" id="to-registration-button">Ещё нет аккаунта</a>
+            </form>
+            <button id="closeLoginFormButton">Закрыть</button>
+        </div>
+        <div id="registrationForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="registration-form">
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <input type="text" placeholder="Имя🧸" id="name" name="name" required autocomplete="given-name">
+                <input type="text" placeholder="Фамилия🍪" id="surname" name="surname" required autocomplete="family-name">
+                <input type="email" placeholder="Почта💌" id="new-email" name="email" required autocomplete="email">
+                <input type="password" placeholder="Пароль🤫" id="new-password" name="password" required autocomplete="new-password">
+                <button type="submit" id="registration-button">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                <button type="button" id="to-login-button">Уже есть аккаунт</a>
+            </form>
+            <button id="closeRegistrationFormButton">Закрыть</button>
+        </div>
+        <header>
+            <div class="center-menu">
+                <h1 id="title">MONSTER<br> CRUNCH</h1>
+                <div class="logo">
+                    <img src="images/cookie_monster.png"/>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Наше печенье</a></li>
+                        <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                        <li><a class="cart" href="cart.html">
+                            <span class="cart-count"></span>
+                            <img src="images/icons/basket.png" >
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile">
+                <div class="header-burger"><span></span></div>
+                <a class="mobile-cart" href="cart.html">
+                    <span class="cart-count"></span>
+                    <img src="images/icons/basket.png">
+                </a>
+            </div>
+        </header>
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Наше печенье</a></li>
+                <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="profile-container">
+                <div class="profile-info">
+                    <img class="profile-photo" src="images/cookie_monster_love.png" alt="profile photo">
+                    <div class="profile-personal">
+                    </div>
+                </div>
+                <div class="orders">
+                    <span class="orders-title">МОИ ЗАКАЗЫ</span>
+
+                </div>
+                <div class="favourite-products">
+                    
+                </div>
+            </div>
+        </main>
+        <div class="for_footer">
+            <footer>
+                <div class="footer_container">
+                    <div class="sec aboutus">
+                        <h2>О нас</h2>
+                        <p>Monster Crunch - это фабрика по производству печенья под руководством Александра Куликова. Важным принципом Monster Crunch является внимание к деталям и любовь к каждой печеньке.
+                        </p>
+                        <ul class="sci">
+                            <li><a id="yt" href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a id="tg" href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                            <li><a id="tel" href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="sec quicklinks">
+                        <h2>Быстрая навигация</h2>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="catalog.html">Наше печенье</a></li>
+                            <li><a href="reviews.html">Отзывы</a></li>
+                            <li><a href="cart.html">Корзина</a></li>
+                        </ul>
+                    </div>
+                    <div class="sec contact">
+                        <h2>Свяжитесь с нами</h2>
+                        <ul class="info">
+                            <li>
+                                <span><i class="fa-solid fa-map"></i></i></i></span>
+                                <span>
+                                    Мичуринский пр-т 12, к2<br>
+                                    Москва,<br>
+                                    Россия
+                                </span>
+                            </li>
+                            <li>
+                                <span><i class="fa-solid fa-phone"></i></i></i></span>
+                                <p><a href="tel:+79624217078">+7(951)194-01-52</a></p>
+                            </li>
+                            <li>
+                                <span><i class="fa-solid fa-envelope"></i></i></i></span>
+                                <p><a href="mailto:monstercrunch@mail.ru">monstercrunch@mail.ru</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+.admin_panel {
+  width: 100%;
+  padding: 60px;
+  position: relative;
+  display: flex;
+  gap: 20px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#productForm {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  align-items: center;
+}
